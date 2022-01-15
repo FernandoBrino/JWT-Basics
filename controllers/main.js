@@ -1,4 +1,6 @@
 const CustomAPIError = require('../errors/custom-error');
+const jwt = require('jsonwebtoken')
+
 
 const login = async (req, res) => {
     const {username,password} = req.body;
@@ -6,10 +8,30 @@ const login = async (req, res) => {
     if(!username || !password) {
         throw new CustomAPIError('Please provide email and password', 400);
     }
-    res.send('Fake Login/Register/Signup Route')
+    //just for demo, normally provided by DB
+    const id = new Date().getDate()
+    //try to keep payload small, better experience for user
+    //just for demo, in production use long, complex and unguessable sting value!!
+    const token = jwt.sign({id, username}, process.env.JWT_SECRET,{expiresIn:'30d'})
+    res.status(200).json({msg:'user created', token})
 }
 
 const dashboard = async (req,res) => {
+    const authHeader = req.headers["authorization"];
+
+    if(!authHeader || !authHeader.startsWith('Bearer')) {
+        throw new CustomAPIError('No token provided', 401)
+    }
+
+    const token = authHeader.split(' ')[1];
+    
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+    } catch (error) {
+        throw new CustomAPIError('Not authorized to access this route', 401);
+        
+    }
+
     const luckyNumber = Math.floor(Math.random()*100)
     res.status(200).json({msg:`Hello, John Doe`, secret:`Here is your authorized data, your lucky number is ${luckyNumber}`})
 }
