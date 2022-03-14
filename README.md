@@ -1,31 +1,25 @@
 <div align="center">
-  <img src="https://yt3.ggpht.com/ytc/AKedOLQkXnYChXAHOeBQLzwhk1_BHYgUXs6ITQOakoeNoQ=s900-c-k-c0x00ffffff-no-rj" width="150" height="150">
-  <h3>✨ Financial Api ✨</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png" width="400" height="150">
+  <h3>✨ 🗝️ JWT Basics by freecodecamp ✨</h3>
 </div>
 
 <div class="overview">
   <h2> Overview </h1>
-  <p>Financial Api or Fin Api, is a rocketseat project, from ignite trial that proposes to build an api to manage bank accounts using basic crud operations and without using a database, just a simple array.</p>
-  
+  <p> JWT Basics, it's a project provided by freecodecamp in order to teach how to use Jason Web Token, using it in a simple application.
+  The main idea is validate entrance by user and if the user has enter credentials sucessfully he can access dashboard ' page ' ( this 2 parts were made in same page ).</p>
+
   <p> What was used ? </p>
     <ul>
       <li> Node Js </li>
       <li> Express Js </li>
+      <li> Nodemon </li>
     </ul>
-    
-  <h3> Insomnia Routes </h3>
+
+  <p> Postman Routes </p>
     <ul>
-      <li> Create Account - {{ _.baseURL }} / account ( post ) </li>
-      <li> Deposit - {{ _.baseURL }} / deposit ( post ) </li>
-      <li> Withdraw - {{ _.baseURL }} / withdraw ( post ) </li>
-      <li> Statement Account - {{ _.baseURL }} / statement ( get )</li>
-      <li> Statement By Date -  {{ _.baseURL }} / statement/date ( get ) </li>
-      <li> Show Account - {{ _.baseURL }} / account ( get ) </li>
-      <li> Show Balance Account - {{ _.baseURL }} / balance ( get ) </li>
-      <li> Update Account - {{ _.baseURL }} / account ( put ) </li>
-      <li> Delete Account - {{ _.baseURL }} / account ( delete ) </li>
+      <li> Dashboard - localhost:3000 /api / v1 / dashboard ( get ) </li>
+      <li> Login / Register - localhost:3000 /api / v1 / login ( post ) </li>
     </ul>
-  
-  <p>baseURL: https://localhost:3333 ⚙ headers: cpf = ( cpf number )</p>
-  
+
+  <p> Ps: Connection with MongoDb wasn't made despite Db archive. Principle idea is to improve back end concepts then front end application was previous made, not by me.</p>      
 </div>
